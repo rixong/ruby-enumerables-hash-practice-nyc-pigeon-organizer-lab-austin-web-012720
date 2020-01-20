@@ -1,5 +1,6 @@
 def nyc_pigeon_organizer(data)
   
+  # Creates the new hash and populates with name keys
   
     pigeon_list = {}
     data[:gender].each_pair { | k, v |
@@ -10,6 +11,8 @@ def nyc_pigeon_organizer(data)
       }
     }
   }
+  
+  # iterates through data and extracts attributes, addng them to new hash.
   
   data.each_key { | key | 
     data[key].each_pair { | k,v| 
