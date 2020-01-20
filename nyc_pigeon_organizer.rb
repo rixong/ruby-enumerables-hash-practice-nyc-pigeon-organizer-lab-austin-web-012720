@@ -1,6 +1,7 @@
 def nyc_pigeon_organizer(data)
   
   # Creates new hash and populates with name keys
+  
   pigeon_list = {}
   data[:gender].each_pair { | k, v |
   v.map { |name| pigeon_list[name] = {} }
