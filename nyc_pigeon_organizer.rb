@@ -1,16 +1,26 @@
 def nyc_pigeon_organizer(data)
+  
+  # Creates the new hash and populates with name keys
+  
     pigeon_list = {}
-    # iterate over gender hash to collect names, and create empty hashes (color, lives keys)
-    data[:gender].each_pair do |(key, value)|
-       data[:gender][key].map {|name| pigeon_list[name] = {:color => [], :gender => [], :lives => []}}
-    end
-    
-    # iterate through other attributes to fill in data
+    data[:gender].each_pair { | k, v |
+      v.map { |name| pigeon_list[name] = {
+        :color => [],
+        :gender => [],
+        :lives => []
+      }
+    }
+  }
+  
+  # iterates through data and extracts attributes, addng them to new hash.
+  
+  data.each_key { | key | 
+    data[key].each_pair { | k,v| 
+    v.each { |name| pigeon_list[name][key].push(k.to_s)
+      }
+    }
+  }
 
-    data.each_pair do |(key1, value1)|
-      data[key1].each_pair do |(key,value)|
-        data[key1][key].map {|name| pigeon_list[name][key1].push(key.to_s)}
-      end
-    end
-    return pigeon_list 
+  
+  return pigeon_list
 end
