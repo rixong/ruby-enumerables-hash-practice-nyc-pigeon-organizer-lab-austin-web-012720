@@ -1,9 +1,13 @@
 def nyc_pigeon_organizer(data)
-  pigeon_list = {}
-  data[:gender].each_pair { | k, v |
-  v.map { |name| pigeon_list[name] = {} }
+    pigeon_list = {}
+    data[:gender].each_pair { | k, v |
+      v.map { |name| pigeon_list[name] = {
+        :color => [],
+        :gender => [],
+        :lives => []
+      }
+    }
   }
-  # color 
   
   data.each_key { | key | 
     data[key].each_pair { | k,v| 
